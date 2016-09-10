@@ -32,7 +32,7 @@ class UserResource(ModelResource):
 
 
 class PostResource(ModelResource):
-    user = fields.ForeignKey(UserResource, 'user', null=True)
+    user = fields.ForeignKey(UserResource, 'user', null=True, full=True)
 
     class Meta:
         limit = 0
