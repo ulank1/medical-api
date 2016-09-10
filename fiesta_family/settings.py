@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-import dj_database_url
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -38,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'post'
+    'post',
+    'tastypie',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -116,6 +116,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+import dj_database_url
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
