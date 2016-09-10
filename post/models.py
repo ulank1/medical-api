@@ -7,7 +7,7 @@ from django.db import models
 
 
 class Post(models.Model):
-    user = models.ForeignKey(User, verbose_name='user', null=True, blank=True)
+    user = models.ForeignKey(User, verbose_name='user', null=True)
     description = models.TextField(max_length=1000)
     address = models.CharField(max_length=100)
     photo_url = models.CharField(max_length=200)
