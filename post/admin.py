@@ -1,7 +1,9 @@
 from django.contrib import admin
 
+from post.models import Poputka, User, Poputchik
+
+
 # Register your models here.
-from post.models import Post, User
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -14,11 +16,21 @@ class UserAdmin(admin.ModelAdmin):
 admin.site.register(User, UserAdmin)
 
 
-class PostAdmin(admin.ModelAdmin):
+class PoputkaAdmin(admin.ModelAdmin):
     class Meta:
-        model = Post
+        model = Poputka
 
     readonly_fields = 'created_at updated_at'.split()
 
 
-admin.site.register(Post, PostAdmin)
+admin.site.register(Poputka, PoputkaAdmin)
+
+
+class PoputchikAdmin(admin.ModelAdmin):
+    class Meta:
+        model = Poputchik
+
+    readonly_fields = 'created_at updated_at'.split()
+
+
+admin.site.register(Poputchik, PoputchikAdmin)
