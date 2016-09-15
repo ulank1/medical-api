@@ -10,7 +10,7 @@ from post.models import Post, User
 
 class UserResource(ModelResource):
     class Meta:
-        resource_name = 'user_new'
+        resource_name = 'user'
         queryset = User.objects.all()
         authorization = Authorization()
         allowed_methods = ['get', 'post', 'put', 'delete']

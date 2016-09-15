@@ -16,7 +16,7 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
     def __unicode__(self):
-        return self.username
+        return self.email
 
 
 class Post(models.Model):
@@ -31,4 +31,4 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
     def __unicode__(self):
-        return self.category
+        return self.title
