@@ -11,7 +11,7 @@ class Poputka(models.Model):
     price = models.CharField(max_length=10)
     lat = models.FloatField()
     longt = models.FloatField()
-    loc = models.IntegerField(null=True)
+    loc = models.IntegerField(null=True,blank=True)
 
     def __unicode__(self):
         return self.price
@@ -21,7 +21,7 @@ class Poputchik(models.Model):
     price = models.CharField(max_length=10)
     lat = models.FloatField()
     longt = models.FloatField()
-    loc = models.IntegerField(null=True)
+    loc = models.IntegerField(null=True,blank=True)
 
     def __unicode__(self):
         return self.price
