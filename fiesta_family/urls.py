@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from post.api import PoputkaResource, UserResource, PoputchikResource
+from post.api import PoputkaResource, PoputchikResource
 from tastypie.api import Api
 
 v1_api = Api(api_name='v1')
 v1_api.register(PoputkaResource())
-v1_api.register(UserResource())
 v1_api.register(PoputchikResource())
 
 
