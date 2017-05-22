@@ -7,27 +7,57 @@ from tastypie.exceptions import BadRequest
 
 from tastypie.resources import ModelResource
 
-from post.models import Poputka, Poputchik
+from post.models import Job, Post, Schedule, Appointment
 
 
-class PoputkaResource(ModelResource):
+class JobResource(ModelResource):
     class Meta:
         limit = 0
         max_limit = 0
-        queryset = Poputka.objects.all()
-        authorization = Authorization()
+        queryset = Job.objects.all()
+        resource_name = 'job'
         allowed_methods = ['get', 'post', 'put', 'delete']
-        resource_name = 'route'
+
+
+class PostResource(ModelResource):
+    job = fields.ForeignKey(JobResource, 'job', full=True, null=True)
+
+    class Meta:
+        limit = 0
+        max_limit = 0
+        queryset = Post.objects.all()
+        resource_name = 'post'
+        allowed_methods = ['get', 'post', 'put', 'delete']
         filtering = {
-            'price': ALL
+            'job': ALL_WITH_RELATIONS,
+            'name': ALL,
+            'surname': ALL
+        }
+
+
+class ScheduleResource(ModelResource):
+    doctor = fields.ForeignKey(PostResource, 'doctor', full=True, null=True)
+
+    class Meta:
+        limit = 0
+        max_limit = 0
+        queryset = Schedule.objects.all()
+        resource_name = 'schedule'
+        allowed_methods = ['get', 'post', 'put', 'delete']
+        filtering = {
+            'doctor': ALL_WITH_RELATIONS,
+            'doctor.job': ALL_WITH_RELATIONS,
+            'week_day': ALL
         }
 
 
 class PoputchikResource(ModelResource):
+    doctor = fields.ForeignKey(PostResource, 'doctor', full=True, null=True)
+
     class Meta:
         limit = 0
         max_limit = 0
-        queryset = Poputchik.objects.all()
+        queryset = Appointment.objects.all()
         authorization = Authorization()
         allowed_methods = ['get', 'post', 'put', 'delete']
         resource_name = 'search'

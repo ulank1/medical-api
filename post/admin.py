@@ -1,22 +1,46 @@
 from django.contrib import admin
-
-from post.models import Poputka, Poputchik
+from .models import Post,Job,Appointment,Schedule
 
 
 # Register your models here.
 
 
-class PoputkaAdmin(admin.ModelAdmin):
+class JobAdmin(admin.ModelAdmin):
     class Meta:
-        model = Poputka
+        model = Job
+
+    readonly_fields = 'created_at updated_at'.split()
+    list_display = 'job'.split()
+
+admin.site.register(Job, JobAdmin)
 
 
-admin.site.register(Poputka, PoputkaAdmin)
+class AppointmentInline(admin.StackedInline):
+
+    model = Appointment
+    extra = 1
 
 
-class PoputchikAdmin(admin.ModelAdmin):
+class PostAdmin(admin.ModelAdmin):
     class Meta:
-        model = Poputchik
+        model = Post
+
+    fields = 'job name surname experience'.split()
+    readonly_fields = 'created_at updated_at'.split()
+    list_display = 'name surname'.split()
+    inlines = [AppointmentInline]
+
+admin.site.register(Post, PostAdmin)
 
 
-admin.site.register(Poputchik, PoputchikAdmin)
+class ScheduleAdmin(admin.ModelAdmin):
+    class Meta:
+        model = Schedule
+
+    readonly_fields = 'created_at updated_at'.split()
+
+admin.site.register(Schedule, ScheduleAdmin)
+
+
+
+
