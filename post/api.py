@@ -62,6 +62,7 @@ class PoputchikResource(ModelResource):
         allowed_methods = ['get', 'post', 'put', 'delete']
         resource_name = 'search'
         filtering = {
-            'price': ALL
+            'doctor': ALL_WITH_RELATIONS,
+            'data': ALL,
 
         }
