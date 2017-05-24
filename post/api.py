@@ -64,5 +64,6 @@ class PoputchikResource(ModelResource):
         filtering = {
             'doctor': ALL_WITH_RELATIONS,
             'data': ALL,
+            'time': ALL,
 
         }

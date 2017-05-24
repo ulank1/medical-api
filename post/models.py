@@ -39,8 +39,8 @@ class Appointment(models.Model):
     class Meta:
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
-
     doctor = models.ForeignKey(Post, verbose_name='врач', null=True)
+    time = models.CharField(max_length=100, verbose_name='время',null=True)
     name = models.CharField(max_length=100, verbose_name='имя', null=True)
     surname = models.CharField(max_length=100, verbose_name='фамилия', null=True)
     number = models.CharField(max_length=100, verbose_name='номер телефона', null=True)
@@ -68,14 +68,3 @@ class Schedule(models.Model):
         return self.doctor.name
 
 
-class Mob(models.Model):
-    class Meta:
-        verbose_name = 'должность'
-        verbose_name_plural = 'должности'
-
-    mob = models.CharField(max_length=20, null=True, verbose_name='должность')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
-
-    def __unicode__(self):
-        return self.job

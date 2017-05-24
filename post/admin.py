@@ -16,7 +16,6 @@ admin.site.register(Job, JobAdmin)
 
 
 class AppointmentInline(admin.StackedInline):
-
     model = Appointment
     extra = 1
 
