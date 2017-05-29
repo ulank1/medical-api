@@ -24,8 +24,9 @@ class User1Resource(ModelResource):
         limit = 0
         max_limit = 0
         queryset = User1.objects.all()
-        resource_name = 'user1'
+        authorization = Authorization()
         allowed_methods = ['get', 'post', 'put', 'delete']
+        resource_name = 'user1'
         filtering = {
                     'name': ALL_WITH_RELATIONS,
                     'surname': ALL,
