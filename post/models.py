@@ -45,6 +45,7 @@ class Appointment(models.Model):
     surname = models.CharField(max_length=100, verbose_name='фамилия', null=True)
     number = models.CharField(max_length=100, verbose_name='номер телефона', null=True)
     data = models.CharField(max_length=100, verbose_name='дата', null=True)
+    ison = models.CharField(max_length=100, verbose_name='ison', null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
 
@@ -61,7 +62,6 @@ class Schedule(models.Model):
     time_from = models.CharField(max_length=100, verbose_name='от', null=True)
     time_to = models.CharField(max_length=100, verbose_name='до', null=True)
     week_day = models.CharField(max_length=100, verbose_name='день недели', null=True)
-    ison = models.CharField(max_length=100, verbose_name='ison', null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
 
