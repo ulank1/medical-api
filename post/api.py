@@ -80,5 +80,5 @@ class PoputchikResource(ModelResource):
             'data': ALL,
             'time': ALL,
             'ison': ALL,
-
+            'number': ALL,
         }
