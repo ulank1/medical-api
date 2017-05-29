@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post,Job,Appointment,Schedule
+from .models import Post,Job,Appointment,Schedule, User1
 
 
 # Register your models here.
@@ -13,6 +13,16 @@ class JobAdmin(admin.ModelAdmin):
     list_display = 'job'.split()
 
 admin.site.register(Job, JobAdmin)
+
+
+class User1Admin(admin.ModelAdmin):
+    class Meta:
+        model = User1
+
+    readonly_fields = 'created_at updated_at'.split()
+    list_display = 'name surname'.split()
+
+admin.site.register(User1, User1Admin)
 
 
 class AppointmentInline(admin.StackedInline):

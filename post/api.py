@@ -19,6 +19,20 @@ class JobResource(ModelResource):
         allowed_methods = ['get', 'post', 'put', 'delete']
 
 
+class User1Resource(ModelResource):
+    class Meta:
+        limit = 0
+        max_limit = 0
+        queryset = Job.objects.all()
+        resource_name = 'user1'
+        allowed_methods = ['get', 'post', 'put', 'delete']
+        filtering = {
+                    'name': ALL_WITH_RELATIONS,
+                    'surname': ALL,
+                    'phone': ALL
+                }
+
+
 class PostResource(ModelResource):
     job = fields.ForeignKey(JobResource, 'job', full=True, null=True)
 

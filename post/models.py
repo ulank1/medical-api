@@ -19,6 +19,22 @@ class Job(models.Model):
         return self.job
 
 
+class User1(models.Model):
+    class Meta:
+        verbose_name = 'пользователь'
+        verbose_name_plural = 'пользователи'
+
+    name = models.CharField(max_length=20, null=True, verbose_name='имя')
+    surname = models.CharField(max_length=20, null=True, verbose_name='фамилия')
+    password = models.CharField(max_length=20, null=True, verbose_name='пароль')
+    phone = models.CharField(max_length=20, null=True, verbose_name='т.номер')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
+
+    def __unicode__(self):
+        return self.job
+
+
 class Post(models.Model):
     class Meta:
         verbose_name = 'Врач'
