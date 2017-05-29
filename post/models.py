@@ -32,7 +32,7 @@ class User1(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
 
     def __unicode__(self):
-        return self.job
+        return self.name
 
 
 class Post(models.Model):
