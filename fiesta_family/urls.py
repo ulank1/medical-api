@@ -18,12 +18,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from tastypie.api import Api
 
-from post.api import PostResource,JobResource,ScheduleResource,PoputchikResource
+from post.api import PostResource,JobResource,ScheduleResource,PoputchikResource,User1Resource
 
 v1_api = Api(api_name='v1')
 v1_api.register(JobResource())
 v1_api.register(PostResource())
 v1_api.register(PoputchikResource())
+v1_api.register(User1Resource())
 v1_api.register(ScheduleResource())
 
 

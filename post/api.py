@@ -7,7 +7,7 @@ from tastypie.exceptions import BadRequest
 
 from tastypie.resources import ModelResource
 
-from post.models import Job, Post, Schedule, Appointment
+from post.models import Job, Post, Schedule, Appointment, User1
 
 
 class JobResource(ModelResource):
@@ -23,7 +23,7 @@ class User1Resource(ModelResource):
     class Meta:
         limit = 0
         max_limit = 0
-        queryset = Job.objects.all()
+        queryset = User1.objects.all()
         resource_name = 'user1'
         allowed_methods = ['get', 'post', 'put', 'delete']
         filtering = {
