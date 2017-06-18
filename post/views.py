@@ -23,9 +23,10 @@ def appointment(request, doctor):
         doctor1 = Post.objects.get(id=doctor)
         appointments = Appointment.objects.filter(doctor=doctor1)
         dd=appointments.filter(ison='yes')
+        cc=dd.order_by('-data', 'time')
     except:
         return Http404
     context={
-        "appointments": dd
+        "appointments": cc
     }
     return HttpResponse(render_to_response('appointment.html', context))
