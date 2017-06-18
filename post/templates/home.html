@@ -15,7 +15,7 @@
 </style>
 <div >
     {% for doctor in doctors %}
-     <a class="main" href="/appointment/{{ doctor.id }}">{{ doctor.name }} {{ doctor.id }}</a>
+     <a class="main" href="/appointment/{{ doctor.id }}">{{ doctor.name }} {{ doctor.surname }}</a>
     {% endfor %}
 
 
