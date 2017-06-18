@@ -31,4 +31,6 @@ v1_api.register(ScheduleResource())
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(v1_api.urls)),
+    url(r'^doctor/', 'post.views.home'),
+    url(r'^appointment/(?P<doctor>[^/]+)', 'post.views.appointment'),
 ]
