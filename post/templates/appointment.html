@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Заявки</title>
 </head>
 <body>
 <style>
@@ -11,12 +11,45 @@
         margin-top: 10px;
         display: block;
     }
+    .main-div{
+        display: inline-block;
+    }
 
 </style>
+<h1>Заявки</h1>
 <div >
-    {% for doctor in appointments %}
+
      <p class="main" >{{ doctor.data }} {{ doctor.time }} {{ doctor.name }} {{ doctor.surname }}</p>
-    {% endfor %}
+        <table border="1">
+            <tr>
+                <td>
+                     Дата
+                </td>
+                <td>
+                    Время
+                </td>
+                <td>
+                    ФИО
+                </td>
+              </tr>
+                {% for doctor in appointments %}
+
+                       <tr>
+                <td>
+                     {{ doctor.data }}
+                </td>
+                <td>
+                  {{ doctor.time }}
+                </td>
+                <td>
+                    {{ doctor.name }} {{ doctor.surname }}
+                </td>
+              </tr>
+
+                {% endfor %}
+
+        </table>
+
 
 
 </div>
